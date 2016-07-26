@@ -14,6 +14,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     var movies = [Movie]()
     
+    var detailedMovieVC: DetailedMovieDescVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +26,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidAppear(animated: Bool) {
         fetchMovies()
         tableView.reloadData()
+        
     }
     
     func fetchMovies() {
@@ -63,6 +66,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        detailedMovieVC = DetailedMovieDescVC(movie: movies[indexPath.row])
+        prepareForSegue(UIStoryboardSegue(identifier: "ToDetailedView", source: self, destination: detailedMovieVC), sender: nil)
     }
     
 
