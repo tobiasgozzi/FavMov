@@ -10,7 +10,6 @@ import UIKit
 
 class DetailedMovieDescVC: UIViewController {
     
-    var movie: Movie!
 
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailTitle: UILabel!
@@ -25,15 +24,9 @@ class DetailedMovieDescVC: UIViewController {
     }
 
     @IBAction func closeDetailedVC(sender: AnyObject){
-        self.dismissViewControllerAnimated(true, completion: nil)
+        navigationController?.popViewControllerAnimated(true)
+//        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    init(movie: Movie) {
-        self.movie = movie
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
 }

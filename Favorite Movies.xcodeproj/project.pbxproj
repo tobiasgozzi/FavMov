@@ -16,6 +16,7 @@
 		1D139A651D45131B0006AB2E /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D139A631D45131B0006AB2E /* Movie.swift */; };
 		1D139A671D45135C0006AB2E /* myMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D139A661D45135C0006AB2E /* myMovieCell.swift */; };
 		1D139A6B1D4514A00006AB2E /* Movie+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D139A6A1D4514A00006AB2E /* Movie+CoreDataProperties.swift */; };
+		1D34AFC71D47DB5500153B40 /* AddMovieVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D34AFC61D47DB5500153B40 /* AddMovieVC.swift */; };
 		1DB273B01D47AC55006A1E6C /* DetailedMovieDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB273AF1D47AC55006A1E6C /* DetailedMovieDescVC.swift */; };
 		1DC1F8EB1D4561EC0061FAE8 /* GreyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC1F8EA1D4561EC0061FAE8 /* GreyButton.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		1D139A631D45131B0006AB2E /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = ../Movie.swift; sourceTree = "<group>"; };
 		1D139A661D45135C0006AB2E /* myMovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myMovieCell.swift; sourceTree = "<group>"; };
 		1D139A6A1D4514A00006AB2E /* Movie+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Movie+CoreDataProperties.swift"; path = "../Movie+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D34AFC61D47DB5500153B40 /* AddMovieVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMovieVC.swift; sourceTree = "<group>"; };
 		1DB273AF1D47AC55006A1E6C /* DetailedMovieDescVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedMovieDescVC.swift; sourceTree = "<group>"; };
 		1DC1F8EA1D4561EC0061FAE8 /* GreyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				1DB273AF1D47AC55006A1E6C /* DetailedMovieDescVC.swift */,
+				1D34AFC61D47DB5500153B40 /* AddMovieVC.swift */,
 				1D139A4C1D45118B0006AB2E /* ViewController.swift */,
 			);
 			name = Controller;
@@ -185,6 +188,7 @@
 				1D139A671D45135C0006AB2E /* myMovieCell.swift in Sources */,
 				1D139A6B1D4514A00006AB2E /* Movie+CoreDataProperties.swift in Sources */,
 				1D139A651D45131B0006AB2E /* Movie.swift in Sources */,
+				1D34AFC71D47DB5500153B40 /* AddMovieVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

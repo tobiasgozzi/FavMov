@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var movies = [Movie]()
     
     var detailedMovieVC: DetailedMovieDescVC!
+    var addMovieVC: AddMovieVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +70,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        detailedMovieVC = DetailedMovieDescVC(movie: movies[indexPath.row])
-        prepareForSegue(UIStoryboardSegue(identifier: "ToDetailedView", source: self, destination: detailedMovieVC), sender: nil)
+        
+        let selectedMovie = movies[indexPath.row]
+        detailedMovieVC = DetailedMovieDescVC()
+        prepareForSegue(UIStoryboardSegue(identifier: "ToDetailedView", source: self, destination: detailedMovieVC), sender: selectedMovie)
+    }
+    
+    @IBAction func presentAddMovieVC(sender: AnyObject) {
+        addMovieVC = AddMovieVC()
+        performSegueWithIdentifier("ToAddMovieVC", sender: nil)
     }
     
 

@@ -39,23 +39,30 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uSp-hC-vD0">
                                                     <rect key="frame" x="8" y="8" width="269" height="174"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4h8-Pg-abR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="146"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4h8-Pg-abR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="60"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="60" id="Jhy-et-3Mn"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="46"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-A7-uuG">
-                                                            <rect key="frame" x="0.0" y="146" width="269" height="28"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-A7-uuG">
+                                                            <rect key="frame" x="0.0" y="60" width="269" height="114"/>
                                                             <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
-                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTK-eu-ZXL">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTK-eu-ZXL">
                                                     <rect key="frame" x="495" y="135" width="105" height="30"/>
                                                     <color key="backgroundColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="B6G-IS-icK"/>
+                                                        <constraint firstAttribute="width" constant="105" id="KIK-Sr-12F"/>
+                                                    </constraints>
                                                     <state key="normal" title="to IMDB">
                                                         <color key="titleColor" red="0.84638825259999995" green="0.84638825259999995" blue="0.84638825259999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -92,6 +99,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <state key="normal" title="Know an other one? Add it!"/>
+                                <connections>
+                                    <action selector="presentAddMovieVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gFc-8X-ypa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,11 +126,115 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="kYR-bS-OpZ" id="lDL-qA-bmw"/>
+                        <segue destination="xHv-j9-HLg" kind="show" identifier="ToAddMovieVC" id="xY4-ta-3kj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="323" y="302"/>
+        </scene>
+        <!--Add MovieVC-->
+        <scene sceneID="pLn-lo-7l4">
+            <objects>
+                <viewController id="xHv-j9-HLg" customClass="AddMovieVC" customModule="Favorite_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pfM-Md-xEd"/>
+                        <viewControllerLayoutGuide type="bottom" id="F7z-VM-U3U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TeJ-Cw-qab">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="morpheus" translatesAutoresizingMaskIntoConstraints="NO" id="ONd-1U-wHR">
+                                <rect key="frame" x="180" y="284" width="240" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="AYJ-gF-L09"/>
+                                    <constraint firstAttribute="width" constant="240" id="mNP-zl-scl"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="fV6-UB-paE">
+                                <rect key="frame" x="20" y="50" width="560" height="168"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the title of your favorite movie." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sMv-uH-bie">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the description of your favorite movie." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6ZG-91-obE">
+                                        <rect key="frame" x="0.0" y="46" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the plot of your favorite movie." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rqw-dg-Ltb">
+                                        <rect key="frame" x="0.0" y="92" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the IMDB URL of your favorite movie." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YJ3-ZV-m6d">
+                                        <rect key="frame" x="0.0" y="138" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="08y-cx-uTe">
+                                <rect key="frame" x="180" y="284" width="240" height="200"/>
+                                <state key="normal" title="pick a picture"/>
+                                <connections>
+                                    <action selector="addPicture:" destination="xHv-j9-HLg" eventType="touchUpInside" id="Iiu-u0-0Hk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hK-bl-1j4" customClass="GreyButton" customModule="Favorite_Movies" customModuleProvider="target">
+                                <rect key="frame" x="180" y="499" width="240" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="1b7-ep-xpN"/>
+                                    <constraint firstAttribute="width" constant="240" id="Aeq-ae-c7Q"/>
+                                </constraints>
+                                <state key="normal" title="add your movie"/>
+                                <connections>
+                                    <action selector="saveMovie:" destination="xHv-j9-HLg" eventType="touchUpInside" id="OhT-b9-hOC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKE-a4-RWl" customClass="GreyButton" customModule="Favorite_Movies" customModuleProvider="target">
+                                <rect key="frame" x="180" y="551" width="240" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="4GB-1d-0vc"/>
+                                    <constraint firstAttribute="height" constant="41" id="enF-4e-efZ"/>
+                                </constraints>
+                                <state key="normal" title="or cancel"/>
+                                <connections>
+                                    <action selector="exitInput:" destination="xHv-j9-HLg" eventType="touchUpInside" id="540-py-9NP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ONd-1U-wHR" firstAttribute="centerX" secondItem="TeJ-Cw-qab" secondAttribute="centerX" id="0f3-fG-kmh"/>
+                            <constraint firstItem="F7z-VM-U3U" firstAttribute="top" secondItem="hKE-a4-RWl" secondAttribute="bottom" constant="8" id="2kc-H2-1jo"/>
+                            <constraint firstItem="8hK-bl-1j4" firstAttribute="top" secondItem="08y-cx-uTe" secondAttribute="bottom" constant="15" id="Lnf-tM-hbr"/>
+                            <constraint firstItem="fV6-UB-paE" firstAttribute="leading" secondItem="TeJ-Cw-qab" secondAttribute="leadingMargin" id="MrT-mD-3PK"/>
+                            <constraint firstItem="fV6-UB-paE" firstAttribute="top" secondItem="pfM-Md-xEd" secondAttribute="bottom" constant="30" id="Sqk-Qu-qTm"/>
+                            <constraint firstItem="08y-cx-uTe" firstAttribute="centerY" secondItem="ONd-1U-wHR" secondAttribute="centerY" id="UrF-bY-vIK"/>
+                            <constraint firstItem="08y-cx-uTe" firstAttribute="centerX" secondItem="ONd-1U-wHR" secondAttribute="centerX" id="eAd-bk-VIi"/>
+                            <constraint firstItem="08y-cx-uTe" firstAttribute="height" secondItem="ONd-1U-wHR" secondAttribute="height" id="h69-Cg-oWy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fV6-UB-paE" secondAttribute="trailing" id="klh-Gz-XFP"/>
+                            <constraint firstItem="hKE-a4-RWl" firstAttribute="centerX" secondItem="TeJ-Cw-qab" secondAttribute="centerX" id="pvi-Sh-1hY"/>
+                            <constraint firstItem="8hK-bl-1j4" firstAttribute="centerX" secondItem="TeJ-Cw-qab" secondAttribute="centerX" id="qQC-q8-tw1"/>
+                            <constraint firstItem="ONd-1U-wHR" firstAttribute="top" secondItem="fV6-UB-paE" secondAttribute="bottom" constant="66" id="vgP-kl-K2N"/>
+                            <constraint firstItem="08y-cx-uTe" firstAttribute="width" secondItem="ONd-1U-wHR" secondAttribute="width" id="ybd-6P-iFB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="InsertedIMDBURL" destination="YJ3-ZV-m6d" id="30q-vs-sit"/>
+                        <outlet property="insertedDescription" destination="6ZG-91-obE" id="jQ9-Xn-EKo"/>
+                        <outlet property="insertedPlot" destination="Rqw-dg-Ltb" id="Q9B-gr-ofc"/>
+                        <outlet property="insertedTitle" destination="sMv-uH-bie" id="OYf-9o-zsd"/>
+                        <outlet property="previewPic" destination="ONd-1U-wHR" id="mfH-4M-AcO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YTD-6y-7VI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="994"/>
         </scene>
         <!--Detailed Movie DescVC-->
         <scene sceneID="toX-Te-dMb">
@@ -146,42 +260,47 @@
                                     <constraint firstAttribute="height" constant="49" id="5kQ-SX-Tmr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="29"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vuY-Gu-jrX">
-                                <rect key="frame" x="20" y="343" width="560" height="227"/>
+                                <rect key="frame" x="20" y="343" width="560" height="197"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="SGM-T7-Wze">
-                                        <rect key="frame" x="0.0" y="0.0" width="518" height="227"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="197"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4e-4L-bwi">
-                                                <rect key="frame" x="430" y="0.0" width="88" height="206"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="88" height="176"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5b-44-naF">
-                                                <rect key="frame" x="476" y="206" width="42" height="21"/>
+                                                <rect key="frame" x="0.0" y="176" width="88" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="z4e-4L-bwi" firstAttribute="top" secondItem="SGM-T7-Wze" secondAttribute="top" id="TPM-kF-bzg"/>
+                                            <constraint firstItem="z4e-4L-bwi" firstAttribute="leading" secondItem="SGM-T7-Wze" secondAttribute="leading" id="X2h-7f-eta"/>
+                                            <constraint firstItem="O5b-44-naF" firstAttribute="leading" secondItem="SGM-T7-Wze" secondAttribute="leading" id="j3z-pl-hbu"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="C1n-vo-RDp">
-                                        <rect key="frame" x="518" y="0.0" width="42" height="227"/>
+                                        <rect key="frame" x="88" y="0.0" width="472" height="197"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Plot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyx-pp-sez">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="206"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="472" height="176"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBw-mm-d5P">
-                                                <rect key="frame" x="0.0" y="206" width="42" height="21"/>
+                                                <rect key="frame" x="0.0" y="176" width="472" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -199,6 +318,17 @@
                                     <color key="titleColor" red="0.84638825259999995" green="0.84638825259999995" blue="0.84638825259999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EiR-oR-zOT" customClass="GreyButton" customModule="Favorite_Movies" customModuleProvider="target">
+                                <rect key="frame" x="480" y="555" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="efm-MJ-iEf"/>
+                                    <constraint firstAttribute="height" constant="30" id="xDt-TP-b4c"/>
+                                </constraints>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <action selector="closeDetailedVC:" destination="7Nu-4I-s2e" eventType="touchUpInside" id="7eQ-6R-hOW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -208,12 +338,14 @@
                             <constraint firstItem="9cc-e7-sV3" firstAttribute="top" secondItem="iwe-rl-mNS" secondAttribute="topMargin" constant="12" id="JrZ-vT-XDb"/>
                             <constraint firstItem="9cc-e7-sV3" firstAttribute="trailing" secondItem="iwe-rl-mNS" secondAttribute="trailingMargin" id="QN2-AH-npv"/>
                             <constraint firstItem="9cc-e7-sV3" firstAttribute="leading" secondItem="iwe-rl-mNS" secondAttribute="leadingMargin" id="QxJ-H1-Pha"/>
-                            <constraint firstItem="AZQ-5l-vwC" firstAttribute="top" secondItem="vuY-Gu-jrX" secondAttribute="bottom" constant="30" id="def-DX-uGq"/>
+                            <constraint firstItem="EiR-oR-zOT" firstAttribute="trailing" secondItem="iwe-rl-mNS" secondAttribute="trailingMargin" id="WmE-47-NQ9"/>
+                            <constraint firstItem="AZQ-5l-vwC" firstAttribute="top" secondItem="vuY-Gu-jrX" secondAttribute="bottom" constant="60" id="def-DX-uGq"/>
                             <constraint firstItem="D6d-Na-tKJ" firstAttribute="centerY" secondItem="Ld8-ld-siw" secondAttribute="centerY" constant="87.5" id="g6N-Ed-f1y"/>
                             <constraint firstItem="vuY-Gu-jrX" firstAttribute="top" secondItem="Ld8-ld-siw" secondAttribute="bottom" constant="21" id="h6Q-oW-Jgl"/>
                             <constraint firstItem="D6d-Na-tKJ" firstAttribute="centerY" secondItem="iwe-rl-mNS" secondAttribute="centerY" id="jpq-UO-T62"/>
                             <constraint firstItem="Ld8-ld-siw" firstAttribute="leading" secondItem="iwe-rl-mNS" secondAttribute="leadingMargin" constant="-20" id="n0r-cR-pTv"/>
                             <constraint firstItem="vuY-Gu-jrX" firstAttribute="leading" secondItem="iwe-rl-mNS" secondAttribute="leadingMargin" id="new-Cg-Tt9"/>
+                            <constraint firstItem="AZQ-5l-vwC" firstAttribute="top" secondItem="EiR-oR-zOT" secondAttribute="bottom" constant="15" id="qig-5g-S5D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="D6d-Na-tKJ" secondAttribute="trailing" constant="-20" id="sZq-qs-VZP"/>
                         </constraints>
                         <variation key="default">
@@ -235,4 +367,7 @@
             <point key="canvasLocation" x="1085" y="19"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="morpheus" width="1024" height="839"/>
+    </resources>
 </document>
