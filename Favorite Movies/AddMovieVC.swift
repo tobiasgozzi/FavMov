@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class AddMovieVC: UIViewController {
+class AddMovieVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var insertedTitle: UITextField!
     @IBOutlet weak var insertedDescription: UITextField!
@@ -16,11 +17,13 @@ class AddMovieVC: UIViewController {
     @IBOutlet weak var insertedIMDBURL: UITextField!
     @IBOutlet weak var previewPic: UIImageView!
     
-    
+    var imgPicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -34,15 +37,45 @@ class AddMovieVC: UIViewController {
                 if let plotText = insertedPlot.text where plotText != "" {
                     if let imdbURL = insertedIMDBURL.text where imdbURL != "" {
                         
+                        if let app = UIApplication.sharedApplication().delegate as? AppDelegate {
+                            let context = app.managedObjectContext
+                            let entity = NSEntityDescription.entityForName("Movie", inManagedObjectContext: context)
+                            let movie = Movie(entity: entity!, insertIntoManagedObjectContext: context)
+                            
+                            movie.desc = descText
+                            movie.settingImg(previewPic.image!)
+                            movie.link = imdbURL
+                            movie.plot = plotText
+                            movie.title = titleText
+                            
+                            do {
+                                try context.save()
+                                exitInput("")
+                            } catch let err as NSError{
+                                print(err.description)
+                            }
+                        }
                     }
                 }
             }
+            
         } else {
             print("not enough data")
         }
+        
     }
     
     @IBAction func exitInput(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBAction func pickImage(sender: AnyObject) {
+        self.presentViewController(imgPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        previewPic.image = image
+        imgPicker.dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }
