@@ -33,6 +33,7 @@ class myMovieCell: UITableViewCell {
         self.movieDesc.text = movie.desc
         self.movieTitle.text = movie.title
         self.movieIMDB_URL.setTitle("go to IMDB", forState: .Normal)
+        self.movieIMDB_URL.setTitle(movie.link, forState: .Reserved)
         self.movieImg.image = movie.getImg()
     }
 
