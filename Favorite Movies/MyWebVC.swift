@@ -33,27 +33,27 @@ class MyWebVC: UIViewController {
     }
  
 
-    
     var IMDBURL: String? = ""
 
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet var container: UIView!
-    var webView: WKWebView!
+    var webViewRect: WKWebView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView = WKWebView()
-        container = UIView()
-        container.addSubview(webView)
+        webViewRect = WKWebView()
+        //container = UIView() !!!! IMPORTANT if you create an IB Outlet and do an explicit inizialization like here, you are overriding the reference and the original Outlet can't be accessed. View become lost.
+        container.addSubview(webViewRect)
         print("view did load")
     }
 
     override func viewDidAppear(animated: Bool) {
         let frame = CGRectMake(0, 0, container.bounds.width, container.bounds.height)
-        webView.frame = frame
-        
-        loadRequest(IMDBURL!)
+        webViewRect.frame = frame
+        print("view did appear")
+
+        prepareLoadRequest(IMDBURL!)
     }
 
     @IBAction func cancelWebView(sender: AnyObject) {
@@ -61,25 +61,31 @@ class MyWebVC: UIViewController {
     }
     
     @IBAction func saveWebPage(sender: AnyObject) {
-        loadRequest(IMDBURL!)
+        NSNotificationCenter.defaultCenter().postNotificationName("URL saved", object: nil, userInfo: ["adress":(webViewRect.URL?.absoluteString)!])
+        //(NSNotification(name: "URL saved", object: webViewRect.URL))
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func loadRequest(url: String) {
-        let request: NSURLRequest?
+    func prepareLoadRequest(url: String) {
+        let request: NSURLRequest!
         
-        if let requestURL = IMDBURL {
+        if let requestURL = IMDBURL where IMDBURL != "" {
             request = NSURLRequest(URL: NSURL(string: requestURL)!)
             print("if request")
         } else {
             request = NSURLRequest(URL: NSURL(string: "http://www.imdb.com")!)
             print("else request")
         }
-        print("nsurl should be initialized with \(IMDBURL)")
-        webView.loadRequest(request!)
-
+        print("nsurl should be initialized with \(IMDBURL!)")
+        webViewRect.loadRequest(request)
+        
         /*while(webView.loading) {
-            progress.progress += 0.5
+            print(NSDate(timeIntervalSince1970: NSTimeInterval.init()))
         }*/
+    }
+    deinit {
+        
+        print("webView closed")
     }
     
 }

@@ -17,6 +17,8 @@ class AddMovieVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var insertedIMDBURL: UITextField!
     @IBOutlet weak var previewPic: UIImageView!
     
+    
+    var savedURL: NSURL!
     var imgPicker: UIImagePickerController!
     
     override func viewDidLoad() {
@@ -25,10 +27,22 @@ class AddMovieVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         imgPicker.delegate = self
         
         // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddMovieVC.updateURLTextField(_:)), name: "URL saved", object: savedURL)
     }
     
-    @IBAction func addPicture(sender: AnyObject) {
+    @IBAction func lookForURL(sender: AnyObject) {
+        performSegueWithIdentifier("showWKWebView", sender: nil)
+    }
     
+    func updateURLTextField(data: NSNotification){
+        if let dict = data.userInfo as? Dictionary<String,String!> {
+            if let url = dict["adress"]! {
+                insertedIMDBURL.text = url
+            }
+        } else {
+            insertedIMDBURL.text = "http://www.imdb.com"
+        }
     }
     
     @IBAction func saveMovie(sender: AnyObject) {

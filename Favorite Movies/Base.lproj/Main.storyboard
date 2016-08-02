@@ -20,7 +20,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="191" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kYR-bS-OpZ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="546"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieMainScreenCell" rowHeight="191" id="4aI-Qv-4lH" customClass="myMovieCell" customModule="Favorite_Movies" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="191"/>
@@ -29,27 +29,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-b4-xBQ">
-                                                    <rect key="frame" x="285" y="8" width="307" height="174"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-b4-xBQ">
+                                                    <rect key="frame" x="392" y="8" width="200" height="174"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="174" id="08b-Uo-nOt"/>
-                                                        <constraint firstAttribute="width" constant="307" id="2pQ-Eb-KJG"/>
+                                                        <constraint firstAttribute="width" constant="200" id="2pQ-Eb-KJG"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uSp-hC-vD0">
-                                                    <rect key="frame" x="8" y="8" width="269" height="174"/>
+                                                    <rect key="frame" x="8" y="8" width="376" height="174"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="4h8-Pg-abR">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="60"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="376" height="90"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="60" id="Jhy-et-3Mn"/>
+                                                                <constraint firstAttribute="height" constant="90" id="Jhy-et-3Mn"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="46"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFN-A7-uuG">
-                                                            <rect key="frame" x="0.0" y="60" width="269" height="114"/>
+                                                            <rect key="frame" x="0.0" y="90" width="376" height="84"/>
                                                             <fontDescription key="fontDescription" name="Kailasa" family="Kailasa" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                                 <constraint firstItem="ilt-b4-xBQ" firstAttribute="top" secondItem="258-eW-KZz" secondAttribute="topMargin" id="ocU-tu-8lc"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="1" green="0.22307571308724833" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.84638825259999995" green="0.84638825259999995" blue="0.84638825259999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="movieDesc" destination="uFN-A7-uuG" id="rRF-zS-Fys"/>
                                             <outlet property="movieIMDB_URL" destination="tTK-eu-ZXL" id="qBT-zi-erg"/>
@@ -189,7 +189,7 @@
                                                 </constraints>
                                                 <state key="normal" title="look for URL"/>
                                                 <connections>
-                                                    <segue destination="7bW-UK-lNe" kind="show" id="fUg-XF-293"/>
+                                                    <action selector="lookForURL:" destination="xHv-j9-HLg" eventType="touchUpInside" id="Ipq-eI-3gJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -204,7 +204,6 @@
                                 <rect key="frame" x="180" y="284" width="240" height="200"/>
                                 <state key="normal" title="pick a picture"/>
                                 <connections>
-                                    <action selector="addPicture:" destination="xHv-j9-HLg" eventType="touchUpInside" id="Iiu-u0-0Hk"/>
                                     <action selector="pickImage:" destination="xHv-j9-HLg" eventType="touchUpInside" id="O6n-FV-83I"/>
                                 </connections>
                             </button>
@@ -249,11 +248,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="InsertedIMDBURL" destination="YJ3-ZV-m6d" id="30q-vs-sit"/>
                         <outlet property="insertedDescription" destination="6ZG-91-obE" id="jQ9-Xn-EKo"/>
+                        <outlet property="insertedIMDBURL" destination="YJ3-ZV-m6d" id="49k-Vx-ZeJ"/>
                         <outlet property="insertedPlot" destination="Rqw-dg-Ltb" id="Q9B-gr-ofc"/>
                         <outlet property="insertedTitle" destination="sMv-uH-bie" id="OYf-9o-zsd"/>
                         <outlet property="previewPic" destination="ONd-1U-wHR" id="mfH-4M-AcO"/>
+                        <segue destination="7bW-UK-lNe" kind="show" identifier="showWKWebView" action="showDetailViewController:sender:" id="kPm-VU-tbO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTD-6y-7VI" userLabel="First Responder" sceneMemberID="firstResponder"/>
