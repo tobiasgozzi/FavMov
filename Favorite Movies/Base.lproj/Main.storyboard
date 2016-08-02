@@ -263,7 +263,7 @@
         <!--My WebVC-->
         <scene sceneID="A8h-yK-KO0">
             <objects>
-                <viewController id="7bW-UK-lNe" customClass="MyWebVC" customModule="Favorite_Movies" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7bW-UK-lNe" customClass="MyWebVC" customModule="Favorite_Movies" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6dp-dL-5lc"/>
                         <viewControllerLayoutGuide type="bottom" id="E0N-md-N2h"/>
@@ -480,6 +480,6 @@
         <image name="morpheus" width="1024" height="839"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ODx-Uf-z6g"/>
+        <segue reference="D0n-ON-h0P"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -11,22 +11,30 @@ import WebKit
 
 class MyWebVC: UIViewController {
     
-    /*convenience init(url: String) {
-        self.init()
-        
+    convenience init(url: String) {
+       self.init()
+        IMDBURL = url
     }
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    
+    init(){
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    /*init(url: String, nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }*/
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        print("coder initialized")
     }
-     */
+ 
 
     
-    var IMDBURL: String!
+    var IMDBURL: String? = ""
 
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet var container: UIView!
@@ -36,12 +44,16 @@ class MyWebVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         webView = WKWebView()
+        container = UIView()
         container.addSubview(webView)
+        print("view did load")
     }
 
     override func viewDidAppear(animated: Bool) {
         let frame = CGRectMake(0, 0, container.bounds.width, container.bounds.height)
         webView.frame = frame
+        
+        loadRequest(IMDBURL!)
     }
 
     @IBAction func cancelWebView(sender: AnyObject) {
@@ -49,17 +61,25 @@ class MyWebVC: UIViewController {
     }
     
     @IBAction func saveWebPage(sender: AnyObject) {
-        loadRequest(IMDBURL)
-        print(self.nibName)
-        print(self.nibBundle)
+        loadRequest(IMDBURL!)
     }
     
     func loadRequest(url: String) {
-        let request = NSURLRequest(URL: NSURL(string: IMDBURL)!)
-        webView.loadRequest(request)
+        let request: NSURLRequest?
+        
+        if let requestURL = IMDBURL {
+            request = NSURLRequest(URL: NSURL(string: requestURL)!)
+            print("if request")
+        } else {
+            request = NSURLRequest(URL: NSURL(string: "http://www.imdb.com")!)
+            print("else request")
+        }
+        print("nsurl should be initialized with \(IMDBURL)")
+        webView.loadRequest(request!)
 
         /*while(webView.loading) {
             progress.progress += 0.5
         }*/
     }
+    
 }

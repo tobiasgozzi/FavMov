@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var addMovieVC: AddMovieVC!
     var webView: MyWebVC!
     
+    var paramURL: String!
     
     
     override func viewDidLoad() {
@@ -86,14 +87,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addMovieVC = AddMovieVC()
         performSegueWithIdentifier("ToAddMovieVC", sender: nil)
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToWebView" {
+            if let destinationVC = segue.destinationViewController as? MyWebVC {
+                destinationVC.IMDBURL = paramURL
+            }
+        }
+    }
     
     @IBAction func showWebPage(sender: UIButton){
-        webView = MyWebVC(coder: NSCoder.init())
-        prepareForSegue(UIStoryboardSegue(identifier: "toWebView", source: self, destination: webView), sender: nil)
-        webView.IMDBURL = sender.titleForState(.Reserved)
-        presentViewController(webView, animated: true, completion: nil)
-        //performSegueWithIdentifier("segueToWebView", sender: nil)
-        
+        paramURL = sender.titleForState(.Reserved)
+        performSegueWithIdentifier("segueToWebView", sender: sender.titleForState(.Reserved))
     }
 
 }
