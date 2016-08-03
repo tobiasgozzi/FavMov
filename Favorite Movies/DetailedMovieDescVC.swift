@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailedMovieDescVC: UIViewController {
     
@@ -18,12 +19,27 @@ class DetailedMovieDescVC: UIViewController {
     @IBOutlet weak var detailPlot: UILabel!
     
     var movieIndex: Int!
+    var movies: [Movie]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let app = UIApplication.sharedApplication().delegate as? AppDelegate
+        let context = app?.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName: "Movie")
+        
+        do {
+            let movieData = try context?.executeFetchRequest(fetchRequest) as? [Movie]
+            movies = movieData
+        } catch let err as NSError {
+            print(err)
+        }
+        
     }
     
+    override func viewDidAppear(animated: Bool) {
+        <#code#>
+    }
     
 
     @IBAction func closeDetailedVC(sender: AnyObject){
