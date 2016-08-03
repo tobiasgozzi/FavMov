@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var webView: MyWebVC!
     
     var paramURL: String!
-    
+    var indexOfMovie: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,10 +75,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let selectedMovie = movies[indexPath.row]
+        //let selectedMovie = movies[indexPath.row]
         
         detailedMovieVC = DetailedMovieDescVC()
-        prepareForSegue(UIStoryboardSegue(identifier: "ToDetailedView", source: self, destination: detailedMovieVC), sender: selectedMovie)
+        //prepareForSegue(UIStoryboardSegue(identifier: "ToDetailedView", source: self, destination: detailedMovieVC), sender: selectedMovie)
+        showDetailVC(indexPath.row)
     }
     
     
@@ -87,17 +88,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addMovieVC = AddMovieVC()
         performSegueWithIdentifier("ToAddMovieVC", sender: nil)
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToWebView" {
             if let destinationVC = segue.destinationViewController as? MyWebVC {
                 destinationVC.IMDBURL = paramURL
             }
+        } else if segue.identifier == "ToDetailedView" {
+            if let destinationVC = segue.destinationViewController as? DetailedMovieDescVC {
+                destinationVC.movieIndex = indexOfMovie
+            }
         }
+        
+        
+    }
+    func showDetailVC(index: Int){
+        indexOfMovie = index
+        performSegueWithIdentifier("ToDetailedView", sender: nil)
+
     }
     
     @IBAction func showWebPage(sender: UIButton){
         paramURL = sender.titleForState(.Reserved)
-        performSegueWithIdentifier("segueToWebView", sender: sender.titleForState(.Reserved))
+        performSegueWithIdentifier("segueToWebView", sender: /*sender.titleForState(.Reserved)*/nil)
     }
 
 }

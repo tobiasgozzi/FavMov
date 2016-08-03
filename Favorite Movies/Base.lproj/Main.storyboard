@@ -89,7 +89,6 @@
                                             <outlet property="movieIMDB_URL" destination="tTK-eu-ZXL" id="qBT-zi-erg"/>
                                             <outlet property="movieImg" destination="ilt-b4-xBQ" id="I9w-UZ-KF9"/>
                                             <outlet property="movieTitle" destination="4h8-Pg-abR" id="dNY-In-Xfh"/>
-                                            <segue destination="7Nu-4I-s2e" kind="show" identifier="ToDetailedView" id="0Cw-es-AGi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,6 +130,7 @@
                         <outlet property="tableView" destination="kYR-bS-OpZ" id="lDL-qA-bmw"/>
                         <segue destination="xHv-j9-HLg" kind="show" identifier="ToAddMovieVC" id="xY4-ta-3kj"/>
                         <segue destination="7bW-UK-lNe" kind="show" identifier="segueToWebView" id="D0n-ON-h0P"/>
+                        <segue destination="7Nu-4I-s2e" kind="show" identifier="ToDetailedView" id="l3H-Hc-M3H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

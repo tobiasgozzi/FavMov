@@ -17,12 +17,17 @@ class DetailedMovieDescVC: UIViewController {
     @IBOutlet weak var detialIMBDLink: UIButton!
     @IBOutlet weak var detailPlot: UILabel!
     
+    var movieIndex: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    
+    
 
     @IBAction func closeDetailedVC(sender: AnyObject){
+        print(movieIndex)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
