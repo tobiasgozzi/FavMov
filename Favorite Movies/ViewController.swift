@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         fetchMovies()
         tableView.reloadData()
         

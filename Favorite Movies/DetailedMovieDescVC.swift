@@ -38,12 +38,19 @@ class DetailedMovieDescVC: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        <#code#>
+        let mov = movies[movieIndex]
+        
+        detailPlot.sizeToFit()
+        detailDesc.sizeToFit()
+        detailTitle.text = mov.title
+        detailDesc.text = mov.desc
+        detailPlot.text = mov.plot
+        detailImage.image = mov.getImg()
+        detialIMBDLink.setTitle(mov.link, forState: .Reserved)
     }
     
 
     @IBAction func closeDetailedVC(sender: AnyObject){
-        print(movieIndex)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     

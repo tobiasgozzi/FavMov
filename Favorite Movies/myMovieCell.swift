@@ -11,7 +11,7 @@ import CoreData
 
 class myMovieCell: UITableViewCell {
 
-    @IBOutlet weak var movieImg: UIImageView!
+    @IBOutlet weak var movieImg: MyMovieIV!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieDesc: UILabel!
     @IBOutlet weak var movieIMDB_URL: UIButton!
@@ -21,7 +21,8 @@ class myMovieCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    
+        
+        movieTitle.sizeToFit()
     }
     
     
