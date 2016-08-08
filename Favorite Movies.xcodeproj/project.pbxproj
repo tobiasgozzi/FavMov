@@ -21,6 +21,7 @@
 		1D62197F1D56181C0022A2BA /* MyMovieIV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D62197E1D56181C0022A2BA /* MyMovieIV.swift */; };
 		1DB273B01D47AC55006A1E6C /* DetailedMovieDescVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB273AF1D47AC55006A1E6C /* DetailedMovieDescVC.swift */; };
 		1DC1F8EB1D4561EC0061FAE8 /* GreyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC1F8EA1D4561EC0061FAE8 /* GreyButton.swift */; };
+		1DEB154E1D58F7A900C9C025 /* MovieTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB154D1D58F7A900C9C025 /* MovieTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		1D62197E1D56181C0022A2BA /* MyMovieIV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMovieIV.swift; sourceTree = "<group>"; };
 		1DB273AF1D47AC55006A1E6C /* DetailedMovieDescVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedMovieDescVC.swift; sourceTree = "<group>"; };
 		1DC1F8EA1D4561EC0061FAE8 /* GreyButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreyButton.swift; sourceTree = "<group>"; };
+		1DEB154D1D58F7A900C9C025 /* MovieTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				1D139A661D45135C0006AB2E /* myMovieCell.swift */,
 				1D139A561D45118B0006AB2E /* LaunchScreen.storyboard */,
 				1DC1F8EA1D4561EC0061FAE8 /* GreyButton.swift */,
+				1DEB154D1D58F7A900C9C025 /* MovieTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DEB154E1D58F7A900C9C025 /* MovieTextField.swift in Sources */,
 				1DB273B01D47AC55006A1E6C /* DetailedMovieDescVC.swift in Sources */,
 				1D139A531D45118B0006AB2E /* Favorite_Movies.xcdatamodeld in Sources */,
 				1D139A4D1D45118B0006AB2E /* ViewController.swift in Sources */,

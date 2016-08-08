@@ -18,6 +18,9 @@ class DetailedMovieDescVC: UIViewController {
     @IBOutlet weak var detialIMBDLink: UIButton!
     @IBOutlet weak var detailPlot: UILabel!
     
+    @IBOutlet weak var plotTitle: UILabel!
+    @IBOutlet weak var descrTitle: UILabel!
+    
     var movieIndex: Int!
     var movies: [Movie]!
     
@@ -40,13 +43,17 @@ class DetailedMovieDescVC: UIViewController {
     override func viewDidAppear(animated: Bool) {
         let mov = movies[movieIndex]
         
-        detailPlot.sizeToFit()
-        detailDesc.sizeToFit()
+
         detailTitle.text = mov.title
         detailDesc.text = mov.desc
         detailPlot.text = mov.plot
         detailImage.image = mov.getImg()
+        detailImage.clipsToBounds = true
         detialIMBDLink.setTitle(mov.link, forState: .Reserved)
+
+        detailPlot.sizeToFit()
+        detailDesc.sizeToFit()
+
     }
     
 

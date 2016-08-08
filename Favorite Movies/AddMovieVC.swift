@@ -16,6 +16,7 @@ class AddMovieVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     @IBOutlet weak var insertedPlot: UITextField!
     @IBOutlet weak var insertedIMDBURL: UITextField!
     @IBOutlet weak var previewPic: UIImageView!
+    @IBOutlet weak var pickPicBtn: UIButton!
     
     
     var savedURL: NSURL!
@@ -29,6 +30,12 @@ class AddMovieVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
         // Do any additional setup after loading the view.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AddMovieVC.updateURLTextField(_:)), name: "URL saved", object: savedURL)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        previewPic.layer.cornerRadius = 10
+        previewPic.clipsToBounds = true
+        
     }
     
     @IBAction func lookForURL(sender: AnyObject) {
@@ -90,6 +97,8 @@ class AddMovieVC: UIViewController, UIImagePickerControllerDelegate, UINavigatio
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         previewPic.image = image
         imgPicker.dismissViewControllerAnimated(true, completion: nil)
+//        pickPicBtn.titleLabel?.text = ""
+        pickPicBtn.alpha = 0.0
         
     }
 }
